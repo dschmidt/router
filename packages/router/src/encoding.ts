@@ -61,6 +61,7 @@ function commonEncode(text: string | number): string {
     .replace(ENC_PIPE_RE, '|')
     .replace(ENC_BRACKET_OPEN_RE, '[')
     .replace(ENC_BRACKET_CLOSE_RE, ']')
+    .replace(HASH_RE, '%23')
 }
 
 /**
@@ -89,7 +90,6 @@ export function encodeQueryValue(text: string | number): string {
       // Encode the space as +, encode the + to differentiate it from the space
       .replace(PLUS_RE, '%2B')
       .replace(ENC_SPACE_RE, '+')
-      .replace(HASH_RE, '%23')
       .replace(AMPERSAND_RE, '%26')
       .replace(ENC_BACKTICK_RE, '`')
       .replace(ENC_CURLY_OPEN_RE, '{')
